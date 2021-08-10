@@ -1,6 +1,17 @@
-.simpsons {
+*{
+    background: cornflowerblue;
+    color: yellow;
+}
+
+.mainbox{
     display: flex;
     width: 100%;
-    background: cornflowerblue;
     flex-wrap: wrap;
+}
+
+.box{
+    width: 49%;
+    border: 1px solid green;
+    box-sizing: border-box;
+    padding: 20px;
 }
