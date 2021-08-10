@@ -1,5 +1,5 @@
 import './user.css'
-export  function User({pId, pName, pUsername, pEmail, pPhone, pWebsite, pCompanyName, pCompanyCatchPhrase, pCompanyBs, pStreet, pSuite, pCity, pZipcode}) {
+export  function User({pId, pName, pUsername, pEmail, pPhone, pWebsite, pCompanyName, pCompanyCatchPhrase, pCompanyBs}) {
 
 
     return (
