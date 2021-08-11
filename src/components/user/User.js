@@ -1,4 +1,3 @@
-import './user.css'
 export  function User({pId, pName, pUsername, pEmail, pPhone, pWebsite, pCompanyName, pCompanyCatchPhrase, pCompanyBs}) {
 
 
