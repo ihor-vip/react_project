@@ -1,6 +1,16 @@
 import Address from "../address/Address";
+import Posts from "../posts/Posts";
+import {useEffect, useState} from "react";
+import {getPostOfUser} from "../../services/user.axios";
 
 export default function User({item, item: {address}}) {
+
+    let [posts, setPosts] = useState([])
+
+    useEffect( () => {
+        getPostOfUser(item.id).then(({data}) => setPosts( [...data]))
+    },[item.id])
+
     return (
 
         <div>
@@ -15,6 +25,10 @@ export default function User({item, item: {address}}) {
                 <li><b><i>COMPANY bs:</i></b> {item.company.bs}</li>
             </ul>
             <Address address={item.address}/>
+
+            <b><i>Posts of user:</i></b>
+
+            <Posts posts={posts}/>
         </div>
     )
 }
