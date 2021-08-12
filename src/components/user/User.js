@@ -1,3 +1,4 @@
+import './User.css'
 import Address from "../address/Address";
 import Posts from "../posts/Posts";
 // import {useEffect, useState} from "react";
@@ -34,7 +35,7 @@ useEffect(() => {
 
 
     return (
-        <div>
+        <div className={'box'}>
             <h2>{item.id}) <b><i>user:</i></b> {item.name}</h2>
             <ul>
                 <li><b><i>username:</i></b> {item.username}</li>
