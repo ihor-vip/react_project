@@ -22,17 +22,12 @@ export default function User({item, item: {address}}) {
     // useEffect(() => {
     //     getCommentOfUser(item.id).then((data) => setPosts([...data]))
     // }, [item.id])
-    let [posts, setPosts] = useState([])
+    let [posts, setPosts] = useState([]);
+    let [comments, setComments] = useState([]);
     useEffect( () => {
-        getPostOfUser(item.id).then(({data}) => setPosts([...data]))
+        getPostOfUser(item.id).then(({data}) => setPosts([...data]));
+        getCommentOfUser(item.id).then(({data}) => setComments([...data]))
     }, [item.id])
-
-
-    let [comments, setComments] = useState([])
-useEffect(() => {
-    getCommentOfUser(item.id).then(({data}) => setComments([...data]))
-},[item.id])
-
 
     return (
         <div className={'box'}>
@@ -50,9 +45,6 @@ useEffect(() => {
 
             <b><i>Posts of user:</i></b>
             <Posts posts={posts}/>
-
-            <b><i>Comments of user:</i></b>
-            <Comments comments={comments}/>
 
 
         </div>
