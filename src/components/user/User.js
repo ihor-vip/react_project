@@ -43,7 +43,7 @@ export default function User({item, item: {address}}) {
             </ul>
             <Address address={address}/>
 
-            <b><i>Posts of user:</i></b>
+             <h2>Posts of user:</h2>
             <Posts posts={posts}/>
 
 

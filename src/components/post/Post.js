@@ -13,10 +13,10 @@ export default function Post({item}) {
 
     return (
         <div>
-            <ul>
+            <ul> <h3>current post</h3>
                 <li><b><i>{item.title}</i></b></li>
             </ul>
-            <b><i>comments</i></b>
+            <h3>comments to current post</h3>
            <Comments comments={comments}/>
         </div>
     )
