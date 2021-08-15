@@ -3,6 +3,7 @@ import {getUsers} from "../../services/service-axios";
 import User from "../user/User";
 import './Users.css';
 import {getPostOfUser} from "../../services/service-axios";
+import Posts from "../posts/Posts";
 
 export default function Users() {
 
@@ -27,7 +28,7 @@ export default function Users() {
             </div>
 
                 {posts && <div className={'chosen-one'}> <h3><b><i>Posts of user</i></b></h3>
-                               {posts.map(value => <h4 key={value.id}><b><i>{value.id}. {value.title} </i></b></h4>)}
+                                    <Posts posts={posts}/>
                           </div>}
         </div>
     );
