@@ -1,0 +1,11 @@
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}
+
+.box{
+    border-bottom: 1px solid yellow;
+}
