@@ -1,0 +1,13 @@
+.user{
+    border: 2px solid green;
+    color: yellow;
+
+    box-sizing: border-box;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: cornflowerblue;
+}
+
+.user>ul>li{
+    list-style: none;
+}
