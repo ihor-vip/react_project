@@ -1,25 +1,18 @@
-import axios from 'axios';
+const NewCar = ({model,price,year}) => {
 
-let config = {
-    baseURL: 'https://jsonplaceholder.typicode.com/'
+    fetch('http://195.72.146.25/api/v1/cars', {
+        method: 'POST',
+        body: JSON.stringify({model,price,year}),
+
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    })
+        .then((response) => response.json())
+        .then((json) => console.log(json));
 }
-
-let axiosInstance = axios.create(config);
-
-const getUsers = () => {
-    return axiosInstance.get('users')
+function getCars() {
+    return  fetch('http://195.72.146.25/api/v1/cars')
+        .then(value => value.json())
 }
-
-const getPostOfUser = (usersId) => {
-    return axiosInstance.get(`users/${usersId}/posts`)
-}
-
-const getCommentOfUser = (postId) => {
-    return axiosInstance.get(`posts/${postId}/comments`)
-}
-
-
-export {getUsers, getPostOfUser, getCommentOfUser}
-
-
-
+export{NewCar, getCars}
