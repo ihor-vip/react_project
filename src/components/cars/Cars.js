@@ -1,5 +1,5 @@
 import {useEffect, useState} from "react";
-import {getCars} from "../../services/service-axios";
+import {getCars} from "../../services/service";
 import Car from "../car/Car";
 import './Cars.css'
 
@@ -17,6 +17,7 @@ useEffect(()=>{
             {
                 cars.map(value => <Car item={value} key={value.id}/>)
             }
+
         </div>
     );
 }
