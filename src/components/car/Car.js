@@ -27,9 +27,8 @@ let [editCar,setEditCar] = useState('')
                     }}>delete car</button>
 
 
-                    <button onClick={() => {setEditCar(<Form1 item={item}/>);
-
-
+                    <button onClick={() => {
+                        setEditCar(<Form1 item={item}/>)
                     }}>edit</button>
 
                     <div>

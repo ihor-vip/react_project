@@ -43,6 +43,7 @@ export function Form(){
             <p><b><i>model: only alpha min 1 max 20 characters</i></b></p>
             <p><b><i>price: greater or equal than 0</i></b></p>
             <p><i>year: min 1990, max current year</i></p>
+            <h2><b><i>Enter the details of your car <br/> you wish to add it to the carlist</i></b></h2>
             <form onSubmit={onSubmitForm} className={'form'}>
 
                 <input type="text" name={'model'} placeholder={'model'}  onInput={onInputChangeModel}/>

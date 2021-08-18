@@ -34,10 +34,10 @@ console.log(auto)
         setYear(year)
     }
 
-    let [info, setInfo] = useState('hide')
+    let [wrap, setWrap] = useState('show')
 
     return (
-        <div className={'wrap'}>
+        <div className={wrap}>
             <h2><b><i>make some changes to the current car</i></b></h2>
 
             <form onSubmit={onSubmitForm} className={'form'}>
@@ -49,9 +49,9 @@ console.log(auto)
                 <input type="text" name={'year'} placeholder={item.year} onInput={onInputChangeYear}/>
 
                 <button onClick={()=>{
-                    if (info === 'hide') {
-                        setInfo('show')
-                    }}}>edit car</button>
+                    if (wrap === 'show') {
+                        setWrap('hide')
+                    } window.location.reload()}}>edit car</button>
 
             </form>
 
