@@ -21,13 +21,13 @@ export default function App() {
                 <div className={'box1'}><Link to={'/'}>RELOAD</Link>
                     <br/></div>
 
-                <div className={'box1'}><Link to={'/users-page'} target={'_blank'}>users</Link>
+                <div className={'box1'}><Link to={'/users-page'}>users</Link>
                     <br/></div>
 
-               <div className={'box1'}> <Link to={'/posts-page'} target={'_blank'}>posts</Link>
+               <div className={'box1'}> <Link to={'/posts-page'}>posts</Link>
                    <br/></div>
 
-              <div className={'box1'}>  <Link to={'/comments-page'} target={'_blank'}>comments</Link>
+              <div className={'box1'}>  <Link to={'/comments-page'}>comments</Link>
                   <br/></div>
 
                 <h2><b><i>Choose the info page</i></b></h2>
