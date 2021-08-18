@@ -1,0 +1,9 @@
+.wrap-comment{
+    background: cornflowerblue;
+    text-align: center;
+    color:yellow;
+}
+
+.wrap-comment > h2 {
+    margin: 0;
+}

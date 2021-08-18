@@ -1,0 +1,10 @@
+.user{
+    width: 47%;
+    border: 2px solid green;
+    margin: 1%;
+    border-radius: 20px;
+}
+
+.user>h2 {
+    text-align: center;
+}

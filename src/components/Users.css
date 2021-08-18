@@ -1,0 +1,7 @@
+.wrap{
+    background: cornflowerblue;
+    color: yellow;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}

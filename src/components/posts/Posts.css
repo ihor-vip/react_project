@@ -1,0 +1,9 @@
+.wrap-box{
+    background: cornflowerblue;
+    text-align: center;
+    color:yellow;
+}
+
+.wrap-box>h2{
+    margin: 0;
+}

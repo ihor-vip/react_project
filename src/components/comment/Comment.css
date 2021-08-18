@@ -1,0 +1,11 @@
+.comment>ul{
+    list-style: none;
+}
+
+.comment{
+    color: yellow;
+    border: 2px solid green;
+    margin: 2%;
+    padding: 1%;
+    border-radius: 20px;
+}
