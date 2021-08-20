@@ -1,0 +1,15 @@
+.container{
+    text-align: center;
+    width: 90%;
+    box-sizing: border-box;
+    margin-left: 5%;
+    border: 2px solid green;
+    border-radius: 20px;
+    margin-bottom: 2%;
+    background: yellow;
+    color: cornflowerblue;
+}
+
+.container ul{
+    list-style: none;
+}

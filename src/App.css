@@ -1,0 +1,23 @@
+.main-wrap{
+    background: cornflowerblue;
+}
+
+.main-wrap h1{
+    text-align: center;
+    color:yellow;
+    padding: 10px;
+}
+
+.wrap{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.wrap a{
+    margin: 5%;
+    border: 2px solid green;
+    padding: 1%;
+    background: yellow;
+    color:cornflowerblue;
+    border-radius: 15px;
+}
