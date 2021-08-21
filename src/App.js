@@ -1,31 +1,35 @@
-import {BrowserRouter as Router, Route, Link
+import {
+    BrowserRouter as Router,
+    Route,
+    Link,
+    Switch,
 } from "react-router-dom";
-import {CarsEven} from "./components/carEven/CarsEven";
-import {CarsOdd} from "./components/carOdd/CarsOdd";
+import {Users} from "./components/Users/Users";
+import Posts from "./components/Posts/Posts";
 import './App.css'
 
 export default function App() {
     return (
         <Router>
-            <div className={'main-wrap'}>
-                <h1><b><i>Choose cars</i></b></h1>
-                <div className={'wrap'}>
-                    <Link to={'/EvenCar'}> Cars with even model name length </Link>
-                    <br/>
-                    <Link to={'/OddCar'}> Car with odd model length </Link>
+
+                <div className={'main-wrap'}>
+                    <h1>Choose what info page you would like to check</h1>
+                    <div className={'wrap'}>
+
+                        <Link to={'/users'}>List of Users </Link>
+
+                        <Link to={'/posts'}>List of all Users Posts</Link>
+
+                    </div>
+
+                    <div>
+                        <Switch>
+                            <Route path={'/users'} component={Users}/>
+                            <Route path={'/posts'} component={Posts}/>
+                        </Switch>
+                    </div>
                 </div>
 
-                <div>
-                    <Route path={'/EvenCar'}>
-                        <CarsEven/>
-                    </Route>
-
-                    <Route path={'/OddCar'}>
-                        <CarsOdd/>
-                    </Route>
-
-                </div>
-            </div>
         </Router>
     );
 }

@@ -1,11 +1,10 @@
-.main-wrap{
+body{
     background: cornflowerblue;
+    color: yellow;
 }
 
 .main-wrap h1{
     text-align: center;
-    color:yellow;
-    padding: 10px;
 }
 
 .wrap{
@@ -14,10 +13,9 @@
 }
 
 .wrap a{
-    margin: 5%;
-    border: 2px solid green;
-    padding: 1%;
+    border:2px solid green;
+    padding:2%;
+    border-radius: 10px;
     background: yellow;
-    color:cornflowerblue;
-    border-radius: 15px;
+    margin-bottom: 3%;
 }

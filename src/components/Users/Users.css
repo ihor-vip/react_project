@@ -1,0 +1,8 @@
+.main-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.users-list{
+    width: 40%;
+}
