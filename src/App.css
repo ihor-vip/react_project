@@ -1,17 +1,11 @@
-*{
+.wrap{
+    text-align: center;
     background: cornflowerblue;
-    color: yellow;
+    margin: 50px 200px 0px 200px;
+    border: 2px solid green;
+    border-radius: 20px;
 }
 
-.mainbox{
-    display: flex;
-    width: 100%;
-    flex-wrap: wrap;
-}
-
-.box{
-    width: 49%;
-    border: 1px solid green;
-    box-sizing: border-box;
-    padding: 20px;
+.wrap button{
+    margin-bottom: 20px;
 }
