@@ -1,35 +1,40 @@
 import {
     BrowserRouter as Router,
-    Route,
     Link,
-    Switch,
+    Route
 } from "react-router-dom";
-import {Users} from "./components/Users/Users";
-import Posts from "./components/Posts/Posts";
-import './App.css'
+
+import './App.css';
+import {Cars} from "./Components/cars/Cars";
+import {CarAddForm} from "./Components/carAddForm/CarAddForm";
+import {EditCarForm} from "./Components/carEditForm/CarEditForm";
+
 
 export default function App() {
+
     return (
         <Router>
+            <div className={'wrap'}>
+                <div>
+                        <Link to={'/'}>About</Link>
+                        <Link to={'/cars'}>All cars info</Link>
+                        <Link to={'/create-car'}>Add new car</Link>
+                        <Link to={'/update-car'}>Update car</Link>
 
-                <div className={'main-wrap'}>
-                    <h1>Choose what info page you would like to check</h1>
-                    <div className={'wrap'}>
-
-                        <Link to={'/users'}>List of Users </Link>
-
-                        <Link to={'/posts'}>List of all Users Posts</Link>
-
-                    </div>
-
-                    <div>
-                        <Switch>
-                            <Route path={'/users'} component={Users}/>
-                            <Route path={'/posts'} component={Posts}/>
-                        </Switch>
-                    </div>
+                         <h1>CAR LIST</h1>
                 </div>
 
+                <div>
+                    <Route exact path={'/'}/>
+
+                    <Route path={'/cars'} component={Cars}/>
+
+                    <Route path={'/create-car'} component={CarAddForm}/>
+
+                    <Route path={'/update-car'} component={EditCarForm}/>
+
+                </div>
+            </div>
         </Router>
     );
 }
