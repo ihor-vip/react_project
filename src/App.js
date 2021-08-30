@@ -1,108 +1,52 @@
-import React, {Fragment} from 'react'
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
+import {addUser, fetchUsers} from "./services/user.api";
+import {fetch_Users, pushUser} from "./redux/actions";
+// import {FETCH_USERS, PUSH_USER} from "./redux/actions/actionTypes";
+// import {fetch_Users, pushUser} from "./redux/actions/actions";
 
-const CreateTodoForms = ({onSubmit}) => {
+export default function App() {
+    let state = useSelector(state => {
+        console.log(state);
+        let {rootReducer} = state;
+        return rootReducer;
+    });
 
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('')
-    const [isLoading, setIsLoading] = useState(false)
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if(!title || !description || isLoading) return;
-
-        try {
-            setIsLoading(true)
-            await onSubmit(title,description);
-            setTitle('')
-            setDescription('')
-        } catch(e) {
-            console.log(e)
-        } finally{
-            setIsLoading(false)
-        }
-    }
-
-   return (
-       <form onSubmit={handleSubmit}>
-           <input type="text" value={title} onChange={({target: {value}}) => setTitle(value)} placeholder= 'todo title'/>
-           <br/>
-           <br/>
-           <input type="text" value={description} onChange={({target: {value}}) => setDescription(value)} placeholder= 'todo description'/>
-           <br/>
-           <button type='submit' disabled={!title || !description || !isLoading}>create todo</button>
-       </form>
-   )
-}
-
-const Todos = ({todos, isLoading}) => {
-
-    if(isLoading) return <h1>Loading...</h1>
-    return (
-        <div>
-            {todos.map(todo => (
-                <Fragment key={todo.id}>
-                    <div>{todo.title}</div>
-                    <div>{todo.description}</div>
-                    <div>Created At: {new Date(todo.createdAt).toDateString()}</div>
-                    <div>Status {todo.completed.toString()}</div>
-                    <hr/>
-                </Fragment>
-            ))}
-        </div>
-    )
-}
-
-function App() {
-    const {todos, todosLoading} = useSelector( store => store.todosReducer);
-    const dispatch = useDispatch();
-
-    const fetchTodos = async() => {
-        try {
-            dispatch({type:'LOADING_TRUE'})
-            const resp = await fetch('http://localhost:8080/get-todos');
-            const data = await resp.json();
-
-            dispatch({type:'ADD_TODOS', payload:data})
-            console.log(data, 'data')
-        } catch(e){
-            console.log(e)
-        } finally{
-            dispatch({type:'LOADING_FALSE'})
-        }
-    }
+    let dispatch = useDispatch();
+    let {users} = state;
 
     useEffect(() => {
-        fetchTodos();
-    },[])
+        fetchUsers().then(value => {
 
-    const onTodoCreate = async(title, description) => {
-        if(!title || !description) return;
+            dispatch(fetch_Users(value));
+        });
+    }, []);
 
-        console.log(JSON.stringify({title, description}))
+    let onSubmit = (e) => {
+        e.preventDefault();
+        let name = e.target.name.value;
+        let user = {name};
+        addUser(user).then(value => {
+            console.log('saved user ->', value);
+            dispatch(pushUser(value));
+        });
+    };
 
-        const resp = await fetch('http://localhost:8080/create-todo',{
-            method: 'POST',
-            body: JSON.stringify({title, description}),
-            headers: {
-                'Content-Type': 'application/json'
+
+    return (
+        <div>
+
+            <form onSubmit={onSubmit}>
+                <input type="text" name={'name'}/>
+                <button>add user</button>
+            </form>
+            <hr/>
+
+
+            {
+                users.map((value) => <div key={value.id}>{value.name}</div>)
             }
-        })
-        const data = await resp.json();
-        dispatch({type:'PUSH_TODO', payload:data})
-        //fetchTodos();
-        console.log(data, 'onTodoCreate')
-    }
 
-     return (
-
-                 <div>
-                    <CreateTodoForms onSubmit={onTodoCreate}/>
-                     <Todos todos={todos} isLoading={todosLoading}/>
-                 </div>
-
-      );
+        </div>
+    );
 }
-
-export default App;
