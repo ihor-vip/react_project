@@ -3,35 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {Provider} from "react-redux";
-import {createStore, applyMiddleware} from "redux";
-import {ADD_USER, LOAD_USERS} from "./redux/actions";
-import ReduxThunk from "redux-thunk";
 
-
-const reducer = (state = {users: []}, action) => {
-switch (action.type) {
-        case LOAD_USERS :
-            return {...state, users: [...action.payload]}
-
-        case ADD_USER:
-            return {...state, users: [...state.users,action.payload]}
-
-        default :
-            return state;
-    }
-}
-let store = createStore(reducer, applyMiddleware(ReduxThunk));
-
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <Provider store={store}>
-            <App/>
-        </Provider>
-    </React.StrictMode>,
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
     document.getElementById('root')
 );
+
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
